@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Global Job Market.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1891"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="fact_job_postings (1)" custom_title="0" dock_id="2" table="4,21:mainfact_job_postings (1)"/><dock_state state="000000ff00000000fd00000001000000020000039100000256fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000003910000016200ffffff000002690000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="fact_job_postings (1)" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="71"/><column index="2" value="239"/><column index="3" value="87"/><column index="4" value="119"/><column index="5" value="111"/><column index="6" value="103"/><column index="7" value="105"/><column index="8" value="113"/><column index="9" value="98"/><column index="10" value="102"/><column index="11" value="93"/><column index="12" value="83"/><column index="13" value="124"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;;
+SELECT country, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY country
+ORDER BY Total_Jobs DESC;
+SELECT company, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY company
+ORDER BY Total_Jobs DESC
+LIMIT 5;
+SELECT AVG(salary_min_usd) AS Average_Salary
+FROM &quot;fact_job_postings (1)&quot;;
+SELECT MAX(salary_max_usd) AS Maximum_Salary
+FROM &quot;fact_job_postings (1)&quot;;
+SELECT *
+FROM &quot;fact_job_postings (1)&quot;
+WHERE experience_level = 'Entry';
+SELECT COUNT(*) AS Entry_level
+FROM &quot;fact_job_postings (1)&quot;
+WHERE experience_level = 'Entry';
+SELECT COUNT(*) AS Full_Time
+FROM &quot;fact_job_postings (1)&quot;
+WHERE employment_type = 'Full-time';
+SELECT COUNT(*) AS Full_Time_Remote_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+WHERE employment_type = 'Full-time'
+AND remote_option = 'Remote';
+SELECT employment_type, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY employment_type
+ORDER BY Total_Jobs DESC;
+SELECT platform, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY platform
+ORDER BY Total_Jobs DESC;
+SELECT job_title, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY job_title
+ORDER BY Total_Jobs DESC;
+SELECT company, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY company
+ORDER BY Total_Jobs DESC;
+SELECT company, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY company
+ORDER BY Total_Jobs ASC;
+SELECT experience_level, AVG(salary_min_usd) AS Average_Salary
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY experience_level
+ORDER BY Average_Salary DESC;
+SELECT experience_level, AVG(salary_min_usd) AS Average_Salary
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY experience_level
+ORDER BY Average_Salary DESC;
+SELECT experience_level, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY experience_level
+ORDER BY Total_Jobs DESC
+LIMIT 1;
+SELECT country, AVG(salary_min_usd) AS Average_Minimum_Salary
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY country
+ORDER BY Average_Minimum_Salary DESC
+LIMIT 1;
+SELECT
+    COUNT(*) * 100.0 / (SELECT COUNT(*) FROM &quot;fact_job_postings (1)&quot;) AS Remote_Percentage
+FROM &quot;fact_job_postings (1)&quot;
+WHERE remote_option = 'Remote';
+SELECT employment_type, AVG(salary_min_usd) AS Average_Minimum_Salary
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY employment_type
+ORDER BY Average_Minimum_Salary DESC
+LIMIT 1;
+SELECT company, COUNT(*) AS Total_Jobs
+FROM &quot;fact_job_postings (1)&quot;
+GROUP BY company
+HAVING Total_Jobs &gt; 100;</sql><current_tab id="0"/></tab_sql></sqlb_project>
