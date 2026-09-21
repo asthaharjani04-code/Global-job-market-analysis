@@ -23,3 +23,4 @@ This project analyzes a global job postings dataset using Excel, SQL, and Power 
 - Job posting trends over time
 
 - ## Dashboard Preview
+<img width="1366" height="768" alt="Screenshot (216)" src="https://github.com/user-attachments/assets/bc2c6d98-db94-4bec-8773-d83940eb80aa" />
